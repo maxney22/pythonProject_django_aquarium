@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'aquarium/style.css' %}">
+    <meta charset="UTF-8">
+    <title>Page formulaire</title>
+</head>
+
+<body>
+    <h1>Formulaire de saisie/modification des données :</h1>
+    <form class="form" action="/aquarium/ROUTE_traitement/" method ="POST">
+        {% csrf_token %}
+        {{formulaire}}
+        {% if not id %}
+        <form class="form" action="/aquarium/ROUTE_traitement/" method="POST">
+        {% else %}
+        <form class="form" action="/aquarium/ROUTE_sauvegarder_modif/{{id}}/" method="POST">
+        {% endif %}
+        <input class="bouton_submit" type="submit" value="Envoyer les données"/>
+    </form>
+</body>
+</html>

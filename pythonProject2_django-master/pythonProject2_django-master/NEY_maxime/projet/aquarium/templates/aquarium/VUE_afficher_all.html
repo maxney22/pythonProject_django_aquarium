@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'aquarium/style.css' %}">
+    <meta charset="UTF-8">
+    <title>Page affichage ALL</title>
+</head>
+
+<body>
+    <h1> L'aquarium des RT !</h1>
+    <a class="btn_generic" href="/aquarium/ROUTE_formulaire/"> Ajouter un Poisson...</a>
+    <main class="flex_conteneur_all">
+        {% for data in liste %}
+            <div class="flex_item_all">
+                <div class="traitement">
+                    {{data.nom |safe}}
+                </div>
+                <div class="boutons_all">
+                </div>
+            </div>
+
+        <div class="boutons_all">
+            <a href="/aquarium/ROUTE_afficher_one/{{data.id}}/">Affichage détails…</a>
+        </div>
+        <div class="boutons_all">
+            <a href="/aquarium/ROUTE_modifier/{{data.id}}/">Mettre à jour…</a>
+        </div>
+         <div class="boutons_all">
+             <a href="/aquarium/ROUTE_supprimer/{{data.id}}/">Supprimer !</a>
+         </div>
+         {% endfor %}
+    </main>
+</body>
+<style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-image: url('https://i.ibb.co/5XVpckjj/photo-1518837695005-2083093ee35b.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      height: 100vh;
+    }
+  </style>
+</html>

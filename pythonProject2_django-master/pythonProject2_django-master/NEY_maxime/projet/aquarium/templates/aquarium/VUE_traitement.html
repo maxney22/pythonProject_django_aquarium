@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'aquarium/style.css' %}">
+    <meta charset="UTF-8">
+    <title>Page affichage données</title>
+</head>
+<body>
+    <h1>Contenu d’un enregistrement :</h1>
+    <div class="traitement">
+        {{donnees|safe}}
+    </div>
+    <a class="btn_generic" href="/aquarium/ROUTE_afficher_all/">Retour à la page principale…</a>
+</body>
+</html>
